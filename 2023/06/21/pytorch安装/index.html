@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>pytorch安装 | Psh</title><meta name="author" content="Psh"><meta name="copyright" content="Psh"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="pytorch安装【conda】配置国内镜像源 pytorch超级详细的安装教程第一次安装的时候安装了差不多有一整天，还安装失败了。这次安装的速度很快。 首先是Anaconda的下载，我用的是上学期学python的时候老师之前给的安装包，很快就安装好了，或者去官网去下载Anaconda也挺快，链接如下： Anaconda官网 其次是Anaconda安装，整个下载过程都是一路next，我只是把下载的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pytorch安装">
+<meta property="og:url" content="https://bvbrutal.github.io/2023/06/21/pytorch%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="Psh">
+<meta property="og:description" content="pytorch安装【conda】配置国内镜像源 pytorch超级详细的安装教程第一次安装的时候安装了差不多有一整天，还安装失败了。这次安装的速度很快。 首先是Anaconda的下载，我用的是上学期学python的时候老师之前给的安装包，很快就安装好了，或者去官网去下载Anaconda也挺快，链接如下： Anaconda官网 其次是Anaconda安装，整个下载过程都是一路next，我只是把下载的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bvbrutal.github.io/2023/06/21/pytorch%E5%AE%89%E8%A3%85/cover.jpg">
+<meta property="article:published_time" content="2023-06-21T12:44:25.000Z">
+<meta property="article:modified_time" content="2023-06-21T14:01:24.557Z">
+<meta property="article:author" content="Psh">
+<meta property="article:tag" content="blog,大数据,人工智能,">
+<meta name="twitter:card" content="只是测试">
+<meta name="twitter:image" content="https://bvbrutal.github.io/2023/06/21/pytorch%E5%AE%89%E8%A3%85/cover.jpg"><link rel="shortcut icon" href="/img/Find.ico"><link rel="canonical" href="https://bvbrutal.github.io/2023/06/21/pytorch%E5%AE%89%E8%A3%85/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Psh","link":"链接: ","source":"来源: Psh","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'pytorch安装',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-21 22:01:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-layer-group"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw fas fa-image"></i><span> Photo</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情连接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-gamepad"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/2023/06/21/pytorch%E5%AE%89%E8%A3%85/cover.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Psh"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Find.ico"/><span class="site-name">Psh</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-layer-group"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw fas fa-image"></i><span> Photo</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情连接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-gamepad"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">pytorch安装</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-21T12:44:25.000Z" title="发表于 2023-06-21 20:44:25">2023-06-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-21T14:01:24.557Z" title="更新于 2023-06-21 22:01:24">2023-06-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="pytorch安装"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2023/06/21/pytorch%E5%AE%89%E8%A3%85/#post-comment"><span class="waline-comment-count" data-path="/2023/06/21/pytorch%E5%AE%89%E8%A3%85/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="pytorch安装"><a href="#pytorch安装" class="headerlink" title="pytorch安装"></a>pytorch安装</h1><p><a target="_blank" rel="noopener" href="https://www.notion.so/conda-2622091c05064b7188dfa60846b1bfce?pvs=21"><strong>【conda】配置国内镜像源</strong></a></p>
+<h2 id="pytorch超级详细的安装教程"><a href="#pytorch超级详细的安装教程" class="headerlink" title="pytorch超级详细的安装教程"></a><strong>pytorch超级详细的安装教程</strong></h2><p><strong>第一次安装的时候安装了差不多有一整天，还安装失败了。这次安装的速度很快。</strong></p>
+<p>首先是Anaconda的下载，我用的是上学期学python的时候老师之前给的安装包，很快就安装好了，或者去官网去下载Anaconda也挺快，链接如下：</p>
+<p><a target="_blank" rel="noopener" href="https://www.anaconda.com/">Anaconda官网</a></p>
+<p>其次是<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Anaconda%E5%AE%89%E8%A3%85&spm=1001.2101.3001.7020">Anaconda安装</a>，整个下载过程都是一路next，我只是把下载的路径改变了一下。默认路径是C盘，我调整到了其他盘。</p>
+<p>安装完整后，在看是菜单处看到新添加的东西</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/7c9f8bc53f3d4ea983a61bc5ab824dce.png" alt="https://img-blog.csdnimg.cn/7c9f8bc53f3d4ea983a61bc5ab824dce.png"></p>
+<p>打开这个Anaconda Prompt应用进入之后是以（base）开头</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/4b98f46f63964f5a820284fdaeb60124.png" alt="https://img-blog.csdnimg.cn/4b98f46f63964f5a820284fdaeb60124.png"></p>
+<p>接下来就是创建pytorch这个包了</p>
+<p>我的版本是3.8，所以下面也也安装3.8版本的，pytorch 是后边建立里的命名</p>
+<p>如果不清楚自己的python版本，win+R，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%89%93%E5%BC%80cmd&spm=1001.2101.3001.7020">打开cmd</a>控制台，输入python就可以看到自己的版本信息。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/64ec04399823413bb21c57493e0ae84d.png" alt="https://img-blog.csdnimg.cn/64ec04399823413bb21c57493e0ae84d.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n pytorch python=3.8</span><br></pre></td></tr></table></figure>
+
+<p>之后，弹出提示，输入 y，即可安装。</p>
+<p>安装成功后，输入以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/7476e9184f01437c8471c8a9268222ea.png" alt="https://img-blog.csdnimg.cn/7476e9184f01437c8471c8a9268222ea.png"></p>
+<p>接下来我们要进入到pytorch环境中去</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/26762e0aadf54d859a93727297492007.png" alt="https://img-blog.csdnimg.cn/26762e0aadf54d859a93727297492007.png"></p>
+<p>接下来是安装pytorch环境</p>
+<p><a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">pytorch官网</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/899020436dac4d1f825f1bb4743edd23.png" alt="https://img-blog.csdnimg.cn/899020436dac4d1f825f1bb4743edd23.png"></p>
+<p>这里面我是按照一个blog用的清华的一个镜像安装的，相对于去年我第一次下载安装pytorch来说，速度很快</p>
+<p>下载的时候有显卡用显卡，没显卡就只能用cpu了</p>
+<p>如何查看自己的CUDA版本号</p>
+<p>在cmd窗口中输入这个命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/69a243ba00a545ba95e909989d73246c.png" alt="https://img-blog.csdnimg.cn/69a243ba00a545ba95e909989d73246c.png"></p>
+<p>接下来就需要导入清华的镜像了。这里我参考的是其他的博客</p>
+<p><strong>.condarc</strong></p>
+<p>插播.condarc知识点：</p>
+<p>.condarc以点开头，一般表示 conda 应用程序的配置文件，在用户的家目录（windows：C:\users\username\，linux：&#x2F;home&#x2F;username&#x2F;）。但对于.condarc配置文件，是一种可选的（optional）运行期配置文件，其默认情况下是不存在的，但当用户第一次运行 <code>conda config</code>命令时，将会在用户的家目录创建该文件。这个shell命令第一次安装的情况下，你需要先执行才会看到.condarc文件，用记事本打开</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/26f5af506c3a405fa035925ea451bf24.png" alt="https://img-blog.csdnimg.cn/26f5af506c3a405fa035925ea451bf24.png"></p>
+<p>讲下面的代码贴到文件中去</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/win-64/</span><br><span class="line">  - defaults</span><br><span class="line">#出错就删除下面</span><br><span class="line">show_channel_urls: true</span><br><span class="line">channel_alias: https://mirrors.tuna.tsinghua.edu.cn/anaconda</span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
+
+<p>然后继续安装pytorch</p>
+<p>我的是这个：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/f0274b640a7548e7a32ef72b00e472bd.png" alt="https://img-blog.csdnimg.cn/f0274b640a7548e7a32ef72b00e472bd.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch</span><br></pre></td></tr></table></figure>
+
+<p>这里我参考了其他的博客，将<code>-c pytorch</code>去掉了。安装速度很快。我第一次安装安装一整天，这个安装大概是分钟左右</p>
+<p>复制下面的代码，之后，在开始菜单中，打开 Anaconda Prompt，查看最左边括号中是 base 还是 pytorch。如果是 [base]，使用 <code>conda activate pytorch</code> 进入 pytorch 环境中。之后粘贴即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision cpuonly</span><br></pre></td></tr></table></figure>
+
+<p>接下来只需要按照提示输入就可以了</p>
+<p><strong>验证是否安装成功（最激动人心的时刻）</strong></p>
+<p>（1）在命令行左边为 pytorch 环境中，输入 python</p>
+<p>（2）之后，输入 <code>import torch</code>，如果没有报错，意味着 PyTorch 已经顺利安装了</p>
+<p>（3）接下来，输入 <code>torch.cuda.is_available</code>，如果是 True，意味着你可以使用 GPU。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/3f199458c2c64fdc919fbe64bfd846c6.png" alt="https://img-blog.csdnimg.cn/3f199458c2c64fdc919fbe64bfd846c6.png"></p>
+<p><strong>注意更新一下</strong></p>
+<p><strong>在上述测试步骤的第二步中，只有当输入 <code>torch.cuda.is_available()</code>，调用函数时带上<code>()</code>才会显示函数的输出，如果是 True，意味着你可以使用 GPU</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/e78a78f1ba674eb8bf398e76949cf661.png" alt="https://img-blog.csdnimg.cn/e78a78f1ba674eb8bf398e76949cf661.png"></p>
+<p>这样就是成功了</p>
+<h2 id="pycharm"><a href="#pycharm" class="headerlink" title="pycharm"></a><strong>pycharm</strong></h2><p>因为shell输入代码不带有提示，使得对新手很不友好。我们将带有pytorch的anaconda导入到pycharm中去</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/94bf485bde81447d9833b67324041c8e.png" alt="https://img-blog.csdnimg.cn/94bf485bde81447d9833b67324041c8e.png"></p>
+<p>这里即为导入了带有pytorch的anaconda</p>
+<p>接下里我们来验证一下</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img-blog.csdnimg.cn/34a680760e944e32836e673c8e297a21.png" alt="https://img-blog.csdnimg.cn/34a680760e944e32836e673c8e297a21.png"></p>
+<p>输入上面的代码，当显示为True时，即为导入成功。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://bvbrutal.github.io">Psh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://bvbrutal.github.io/2023/06/21/pytorch%E5%AE%89%E8%A3%85/">https://bvbrutal.github.io/2023/06/21/pytorch%E5%AE%89%E8%A3%85/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://bvbrutal.github.io" target="_blank">Psh</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/2023/06/21/pytorch%E5%AE%89%E8%A3%85/cover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/06/18/nvm%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="nvm安装教程"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/18/nvm%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/c73c8389162d445dab76272d33aa088f.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">nvm安装教程</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Psh</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Bvbrutal"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Bvbrutal" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:psh_624@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">不定时更新，欢迎投稿  psh_624@163.com  要求markdown文档 采用也会表明作者以及小小稿费</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">pytorch安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pytorch%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">pytorch超级详细的安装教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pycharm"><span class="toc-number">1.2.</span> <span class="toc-text">pycharm</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/pytorch%E5%AE%89%E8%A3%85/" title="pytorch安装"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/21/pytorch%E5%AE%89%E8%A3%85/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="pytorch安装"/></a><div class="content"><a class="title" href="/2023/06/21/pytorch%E5%AE%89%E8%A3%85/" title="pytorch安装">pytorch安装</a><time datetime="2023-06-21T12:44:25.000Z" title="发表于 2023-06-21 20:44:25">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/18/nvm%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="nvm安装教程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/18/nvm%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/c73c8389162d445dab76272d33aa088f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nvm安装教程"/></a><div class="content"><a class="title" href="/2023/06/18/nvm%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="nvm安装教程">nvm安装教程</a><time datetime="2023-06-17T16:56:37.000Z" title="发表于 2023-06-18 00:56:37">2023-06-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/17/ide%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="ide安装教程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/17/ide%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/20210121124328875.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ide安装教程"/></a><div class="content"><a class="title" href="/2023/06/17/ide%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="ide安装教程">ide安装教程</a><time datetime="2023-06-17T03:17:30.000Z" title="发表于 2023-06-17 11:17:30">2023-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/16/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" title="软件工程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/16/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程"/></a><div class="content"><a class="title" href="/2023/06/16/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" title="软件工程">软件工程</a><time datetime="2023-06-15T17:17:46.000Z" title="发表于 2023-06-16 01:17:46">2023-06-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/" title="计算机网络知识"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络知识"/></a><div class="content"><a class="title" href="/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/" title="计算机网络知识">计算机网络知识</a><time datetime="2023-06-15T17:03:37.000Z" title="发表于 2023-06-16 01:03:37">2023-06-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/2023/06/21/pytorch%E5%AE%89%E8%A3%85/cover.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Psh</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'http://81.71.101.143:8360',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: true,
+    }, {"number":0}))
+  }
+
+  if (typeof Waline === 'object') initWaline()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
