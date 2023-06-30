@@ -54,7 +54,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-06-30 19:23:06'
+  postUpdate: '2023-06-30 19:28:32'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
 
   const getComment = async () => {
     try {
-      const res = await fetch('https://81.71.101.143:8360/api/comment?type=recent&count=6', { method: 'GET' })
+      const res = await fetch('http://81.71.101.143:8360/api/comment?type=recent&count=6', { method: 'GET' })
       const result = await res.json()
       const walineArray = result.data.map(e => {
         return {
