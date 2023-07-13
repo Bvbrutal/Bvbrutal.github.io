@@ -1,1 +1,1 @@
-var posts=["2023/06/17/ide安装教程/","2023/06/18/nvm安装教程/","2023/06/21/pytorch安装/","2023/07/11/第一天/","2023/06/16/计算机网络知识/","2023/07/13/第三天/","2023/07/12/第二天/","2023/06/16/软件工程/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
+var posts=["2023/06/18/nvm安装教程/","2023/07/11/第一天/","2023/06/21/pytorch安装/","2023/07/13/第三天/","2023/07/12/第二天/","2023/06/17/ide安装教程/","2023/06/16/计算机网络知识/","2023/06/16/软件工程/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
