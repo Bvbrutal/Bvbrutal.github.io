@@ -268,7 +268,7 @@ if (true) {
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'http://81.71.101.143:8360',
+      serverURL: 'http://www.pshxx.cc:8360/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,
@@ -340,7 +340,7 @@ if ('Waline' === 'Waline' || !false) {
   const getComment = () => {
     const loadWaline = () => {
       Waline.RecentComments({
-        serverURL: 'http://81.71.101.143:8360',
+        serverURL: 'http://www.pshxx.cc:8360/',
         count: 6
       }).then(({comments}) => {
         const walineArray = comments.map(e => {
