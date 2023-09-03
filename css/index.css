@@ -6210,8 +6210,16 @@ body[data-type="music"] .s-sticker div {
   -ms-transition: 0.3s;
   transition: 0.3s;
 }
-body:has(#console.show) #nav-music {
+#nav-music {
   display: none !important;
+}
+body:has(#console.show) #nav-music {
+  display: -webkit-box !important;
+  display: -moz-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: box !important;
+  display: flex !important;
 }
 @media screen and (max-width: 1400px) {
   body #anMusic-page #anMusicSwitching,
