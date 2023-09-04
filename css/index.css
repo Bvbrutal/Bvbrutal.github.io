@@ -6210,6 +6210,9 @@ body[data-type="music"] .s-sticker div {
   -ms-transition: 0.3s;
   transition: 0.3s;
 }
+body:has(#console.show) #nav-music {
+  display: none !important;
+}
 #nav-music {
   display: none !important;
 }
